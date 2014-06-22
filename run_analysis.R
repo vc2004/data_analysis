@@ -39,11 +39,23 @@ new_train_activity <- data.frame(id = seq(nrow(train_activity)), Activity = 1)
 clean_train_data <- data.frame(id = seq(nrow(train_activity)))
 
 for (i in 1:nrow(test_activity)) {
-    new_test_activity[i,2] = switch(test_activity[i,], "WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING")    
+    new_test_activity[i,2] = switch(test_activity[i,], 
+                                    "WALKING", 
+                                    "WALKING_UPSTAIRS", 
+                                    "WALKING_DOWNSTAIRS", 
+                                    "SITTING", 
+                                    "STANDING", 
+                                    "LAYING")    
 }
 
 for (i in 1:nrow(train_activity)) {
-    new_train_activity[i,2] = switch(train_activity[i,], "WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING")    
+    new_train_activity[i,2] = switch(train_activity[i,], 
+                                     "WALKING", 
+                                     "WALKING_UPSTAIRS", 
+                                     "WALKING_DOWNSTAIRS", 
+                                     "SITTING", 
+                                     "STANDING", 
+                                     "LAYING")    
 }
 
 # Restructure subject table
