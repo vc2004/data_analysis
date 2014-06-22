@@ -32,8 +32,8 @@ This file will:
 
 1. raw_data.txt
 
-This file is used for store all the mean and std variable for all subjects and activities.
+    This file is used for store all the mean and std variable for all subjects and activities.
 
 2. final_data.txt
 
-This file is the final clean data which includes the average value for each subjects and each activity.
+    This file is the final clean data which includes the average value for each subjects and each activity.
