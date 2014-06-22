@@ -1,4 +1,4 @@
-##This is course project for Getting and Cleaning Data
+##Course project for Getting and Cleaning Data
 
 ======================================================
 
@@ -8,6 +8,14 @@
 2. Run following command line in R:
     <pre><code>source("run_analysis.R")</code></pre>
 3. Two file will be generated in working direcory, the final_data.txt is the result clean data.
+
+##File listed in this repository:
+
+- 'README.md': Overview of this repository and instruction on how to run analysis file.
+
+- 'final_data.txt': The final clean data required by assignment.
+
+- 'Codebook.md': The codebook of the clean data set.
 
 ##Description
 
@@ -34,3 +42,7 @@ This file will:
 2. final_data.txt
 
     This file is the final clean data which includes the average value for each subjects and each activity.
+
+##More Information
+
+For more information, please refer to the Codebook.md
