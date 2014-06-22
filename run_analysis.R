@@ -25,12 +25,12 @@ train_data <- read.table("train/x_train.txt")
 
 feature <- read.table("features.txt")
 
-# Assign column names to the test data set
+# Assign column names to the test and train data set
 
 colnames(test_data) <- feature[,2]
 colnames(train_data) <- feature[,2]
 
-# Create new activity table with readable names
+# Create new activity table with readable entries
 
 new_test_activity <- data.frame(id = seq(nrow(test_activity)), Activity = 1)
 clean_test_data <- data.frame(id = seq(nrow(test_activity)))
@@ -80,6 +80,11 @@ clean_train_data$id <- NULL
 
 clean_data <- rbind(clean_test_data, clean_train_data)
 
+# Replace the name with Readable name
+
+colnames(clean_data) <- gsub('-mean()', 'Mean', colnames(clean_data))
+colnames(clean_data) <- gsub('-std()', 'Std', colnames(clean_data))
+
 # Sort the clean data
 
 clean_data <- clean_data[order(clean_data$Subject),]
@@ -89,7 +94,7 @@ final_data <- final_data[order(final_data$Subject),]
 # Output to the file
 
 setwd("..")
-write.table(clean_data, "clean_data.txt", row.names=FALSE, sep="\t")
+write.table(clean_data, "raw_data.txt", row.names=FALSE, sep="\t")
 write.table(final_data, "final_data.txt", row.names=FALSE, sep="\t")
 
 
