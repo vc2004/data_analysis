@@ -1,12 +1,27 @@
-# Reading the test and training data set
+##############################################################
+#   Author: Liang Dong
+#   Date:   2014-06-21
+#   File:   run_analysis.R
+#   Description: Course Project for Getting and Cleaning Data
+#
+##############################################################
 
-test_activity <- read.table("y_test.txt")
-test_subject <- read.table("subject_test.txt")
-test_data <- read.table("x_test.txt")
+# Download and unzip R file
 
-train_activity <- read.table("y_train.txt")
-train_subject <- read.table("subject_train.txt")
-train_data <- read.table("x_train.txt")
+fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+download.file(fileURL, destfile="data.zip", method="curl")
+unzip("data.zip")
+
+# Reading the test and train data set
+
+setwd("UCI HAR Dataset/")
+test_activity <- read.table("test/y_test.txt")
+test_subject <- read.table("test/subject_test.txt")
+test_data <- read.table("test/x_test.txt")
+
+train_activity <- read.table("train/y_train.txt")
+train_subject <- read.table("train/subject_train.txt")
+train_data <- read.table("train/x_train.txt")
 
 feature <- read.table("features.txt")
 
@@ -55,7 +70,7 @@ for (i in 1:ncol(train_data)) {
     }
 }
 
-# Merge the test data set
+# Merge the test data set and remove id column used for merging
 
 clean_test_data <- merge(merge(test_subject, new_test_activity), clean_test_data)
 clean_test_data$id <- NULL
@@ -73,7 +88,8 @@ final_data <- final_data[order(final_data$Subject),]
 
 # Output to the file
 
-write.csv(clean_data, "clean_data.txt", row.names=FALSE)
-write.csv(final_data, "final_data.txt", row.names=FALSE)
+setwd("..")
+write.table(clean_data, "clean_data.txt", row.names=FALSE, sep="\t")
+write.table(final_data, "final_data.txt", row.names=FALSE, sep="\t")
 
 
