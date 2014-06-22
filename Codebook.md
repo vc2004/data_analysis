@@ -61,7 +61,6 @@ The data file is downloaded from:
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones 
 
 Following files in the original data set have been used:
-========================================================
 
 - 'features.txt': List of all features.
 
